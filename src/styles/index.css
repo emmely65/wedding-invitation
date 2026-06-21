@@ -1,0 +1,155 @@
+@import url('https://fonts.googleapis.com/css2?family=Tangerine:wght@400;700&family=Cormorant+Infant:ital,wght@0,400;0,600;0,700;1,400&family=Elsie&family=Pinyon+Script&family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  scroll-behavior: smooth;
+}
+
+html, body, #root {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  background: #f5f0f0;
+}
+
+img {
+  max-width: 100%;
+}
+
+/* ─── Video Background ─── */
+.video-bg-container {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.video-bg-container video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ─── Cover Lock ─── */
+.cover-locked {
+  overflow: hidden !important;
+  height: 100dvh !important;
+}
+
+/* ─── Gold Divider ─── */
+.gold-divider {
+  height: 1px;
+  background: linear-gradient(to right, transparent, #dcac61, transparent);
+}
+
+/* ─── Islamic Ornament Pattern (subtle bg) ─── */
+.islamic-pattern-bg {
+  background-image:
+    radial-gradient(circle at 20% 20%, rgba(220,172,97,0.06) 0%, transparent 50%),
+    radial-gradient(circle at 80% 80%, rgba(220,172,97,0.06) 0%, transparent 50%);
+}
+
+/* ─── Staggered zoom-in animations for hero text ─── */
+.stagger-1 { animation-delay: 1200ms; }
+.stagger-2 { animation-delay: 1400ms; }
+.stagger-3 { animation-delay: 1600ms; }
+.stagger-4 { animation-delay: 1800ms; }
+.stagger-5 { animation-delay: 2000ms; }
+
+/* ─── Scroll indicator bounce ─── */
+@keyframes scrollBounce {
+  0%, 100% { transform: translateY(0); opacity: 0.7; }
+  50% { transform: translateY(8px); opacity: 1; }
+}
+
+.scroll-indicator {
+  animation: scrollBounce 2s ease-in-out infinite;
+}
+
+/* ─── Arabic text styling ─── */
+.arabic-text {
+  font-family: 'Traditional Arabic', 'Scheherazade New', 'Amiri', serif;
+  direction: rtl;
+  line-height: 2;
+}
+
+@layer components {
+  .btn-primary {
+    @apply inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-gold px-6 py-3 text-center text-xs font-semibold uppercase tracking-[0.18em] text-white shadow-gold transition duration-300 hover:-translate-y-0.5 hover:bg-goldDark focus:outline-none focus:ring-4 focus:ring-gold/30;
+  }
+
+  .btn-secondary {
+    @apply inline-flex min-h-12 items-center justify-center gap-2 rounded-full border border-gold/60 bg-white/65 px-6 py-3 text-center text-xs font-semibold uppercase tracking-[0.18em] text-goldDark shadow-card transition duration-300 hover:-translate-y-0.5 hover:bg-gold/10 focus:outline-none focus:ring-4 focus:ring-gold/25;
+  }
+
+  .btn-gold-outline {
+    @apply inline-flex items-center justify-center gap-2 rounded-full border border-gold/50 bg-gold/10 px-5 py-2.5 text-xs font-semibold uppercase tracking-widest text-gold transition duration-300 hover:bg-gold/20;
+  }
+
+  .form-label {
+    @apply block text-sm font-medium text-ink;
+  }
+
+  .form-input {
+    @apply mt-2 w-full rounded-2xl border border-bone bg-ivory px-4 py-3 text-sm text-ink outline-none transition placeholder:text-mutedInk/55 focus:border-gold focus:ring-4 focus:ring-gold/20;
+  }
+
+  .section-padding {
+    @apply px-5 py-16 sm:px-8 lg:px-10;
+  }
+
+  .icon-pill {
+    @apply mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-gold/40 bg-gold/10 text-sm font-semibold text-goldDark;
+  }
+}
+
+/* ─── Copy feedback tooltip ─── */
+.copy-feedback {
+  animation: fadeUp 0.3s ease both;
+}
+
+/* ─── Color swatch ─── */
+.color-swatch {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 3px solid rgba(220,172,97,0.3);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.color-swatch:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+}
+
+/* ─── Attendance radio buttons ─── */
+.attendance-radio input[type="radio"] {
+  display: none;
+}
+
+.attendance-radio label {
+  @apply cursor-pointer rounded-xl border border-bone bg-white px-4 py-2.5 text-sm font-medium text-ink transition;
+}
+
+.attendance-radio input[type="radio"]:checked + label {
+  @apply border-gold bg-gold/15 text-goldDark;
+}
+
+/* ─── Reduced motion ─── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
