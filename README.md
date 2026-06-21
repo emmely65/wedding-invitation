@@ -1,4 +1,4 @@
-# Bella & Deni Wedding Invitation
+# Ali & Deni Lailatul Invitation
 
 Website undangan pernikahan digital single-page scrolling berbasis React + Tailwind CSS.
 
